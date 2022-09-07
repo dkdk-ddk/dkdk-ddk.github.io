@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://dkdk-ddk.github.io/archives/">
+  <link rel="canonical" href="http://dkdk-ddk.github.io/cn/[基础知识]优化算法/">
   <title>
     
-      DKDKDDK&#39;s Blog
+      深度学习中的优化器 - DKDKDDK&#39;s Blog
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -300,29 +300,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      简体中文
-    </span>
-    <select id="lang-select" data-canonical="archives/index.html">
-      
-      
-      <option value="en" >
-        English
-      </option>
-      
-      <option value="cn"  selected >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -374,19 +352,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/sunset-bg.jpg');
-      --intro-header-background-image-url-post: url('');
-      --intro-header-background-image-url-page: url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: url('/img/header_img/lml_bg.jpg');
+      --intro-header-background-image-url-page: url('//img/header_img/lml_bg.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/sunset-bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/lml_bg.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/header_img/lml_bg.jpg');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/img/header_img/newhome_bg.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/header_img/lml_bg.jpg'); */
       
     }
 
@@ -404,10 +382,32 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>DKDKDDK&#39;s Cookbook</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">Come and taste it!</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#深度学习" title="深度学习">深度学习</a>
+              
+              <a class="tag" href="/tags/#基础知识" title="基础知识">基础知识</a>
+              
+            </div>
+            <h1>深度学习中的优化器</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by DK on
+              2022-04-17
+            </span>
+
+
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -448,242 +448,243 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <p>参考 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32230623">https://zhuanlan.zhihu.com/p/32230623</a></p>
+<h2 id="Overview">Overview</h2>
+<p>发展顺序大概是 SGD -&gt; SGDM -&gt; NAG -&gt;AdaGrad -&gt; AdaDelta -&gt; Adam -&gt; Nadam  -&gt; AdamW</p>
+<p>整体框架：</p>
+<ul>
+<li>计算梯度$g_t=\nabla{f(w_t)}$</li>
+<li>根据历史梯度计算一阶和二阶动量
+<ul>
+<li>$m_t=\phi(g_1,g_2,…,g_t)$</li>
+<li>$V_t=\psi(g_1, g_2,…,g_t)$</li>
+</ul>
+</li>
+<li>计算下降的梯度$\eta_t=\alpha m_t/\sqrt{V_t}$</li>
+<li>更新参数$w_{t+1}=w_t-\eta_t$</li>
+</ul>
+<h2 id="SGD">SGD</h2>
+<p>简单来说就是没用动量：</p>
+<p>$m_t=g_t，V_t=I^2$</p>
+<p>SGD最大的缺点是下降速度慢，而且可能会在沟壑的两边持续震荡，停留在一个局部最优点</p>
+<h2 id="SGD-Momentum">SGD + Momentum</h2>
+<p>加入惯性（动量）来抑制震荡。比方在下坡的时候，如果发现是陡坡，就冲的快一些</p>
+<p>$m_t=\beta_1m_{t-1}+(1-\beta_1)g_t$</p>
+<h2 id="SGD-Nestrov">SGD + Nestrov</h2>
+<p>在动量项的基础上，把导数计算点往前移了一步，相当于预先看到后一步的导数(线性外插)，为此作修正。</p>
+<p>相当于加了二阶导数信息，有：</p>
+<p>$g_t=\nabla f(w_t-\alpha m_{t-1}/\sqrt {V_{t-1}})$</p>
+<h2 id="Adagrad">Adagrad</h2>
+<p>此前我们都没有用到二阶动量。二阶动量的出现，才意味着“自适应学习率”优化算法时代的到来。SGD及其变种以同样的学习率更新每个参数，但深度神经网络往往包含大量的参数，这些参数并不是总会用得到（想想大规模的embedding）。对于经常更新的参数，我们已经积累了大量关于它的知识，不希望被单个样本影响太大，希望学习速率慢一些；对于偶尔更新的参数，我们了解的信息太少，希望能从每个偶然出现的样本身上多学一些，即学习速率大一些。 怎么样去度量历史更新频率呢？那就是二阶动量——该维度上，迄今为止所有梯度值的平方和：</p>
+<p>$V_t=\sum_{\tau=1}^{t}g_\tau^2$</p>
+<p>它的问题是$V_t$单调递增的，会使得学习率单调递减至0。</p>
+<h2 id="AdaDelta-RMSProp">AdaDelta / RMSProp</h2>
+<p>由于AdaGrad单调递减的学习率变化过于激进，我们考虑一个改变二阶动量计算方法的策略：不累积全部历史梯度，而只关注过去一段时间窗口的下降梯度。这也就是AdaDelta名称中Delta的来历。 修改的思路很简单。前面我们讲到，指数移动平均值大约就是过去一段时间的平均值，因此我们用这一方法来计算二阶累积动量：</p>
+<p>$V_t=\beta_2V_{t-1}+(1-\beta_2)g_t^2$</p>
+<h2 id="Adam">Adam</h2>
+<p>谈到这里，Adam和Nadam的出现就很自然而然了——它们是前述方法的集大成者。我们看到，SGD-M在SGD基础上增加了一阶动量，AdaGrad和AdaDelta在SGD基础上增加了二阶动量。把一阶动量和二阶动量都用起来，就是Adam了——Adaptive + Momentum。相当于：</p>
+<p>$m_t=\beta_1m_{t-1}+(1-\beta_1)g_t$</p>
+<p>$V_t=\beta_2V_{t-1}+(1-\beta_2)g_t^2$</p>
+<p>但这里用的时候，比如刚开始训练的时候，一般我们会设$\beta_1=0.9$和$\beta_2=0.999$，这时如果$m_0$和$V_0$为0，那前面几步的$m$和$V$将长期处于接近0的状态，此时需要特殊处理一下。</p>
+<h2 id="Nadam">Nadam</h2>
+<p>Nadam相当于是Adam + Nestrov</p>
+<h2 id="AdamW">AdamW</h2>
+<p>相当于Adam + L2 Reg</p>
 
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
 
-      
-
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-          <span class="tag-text">2022</span>
-        </span>
-        <ul>
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <li>
-            09-06
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/cn/[基础知识]多任务学习/" style="color: #0085a1">
-              <span>
-                多任务学习的Loss设计和梯度推导
-                
-                -- cn
-                
-              </span>
-            </a>
+          <li class="previous">
+            <a href="/cn/[基础知识]多任务学习/" data-toggle="tooltip" data-placement="top" title="多任务学习的Loss设计和梯度推导">&larr; Previous Post</a>
           </li>
           
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/cn/[基础知识]各类损失函数/" style="color: #0085a1">
-              <span>
-                深度学习中各类损失函数
-                
-                -- cn
-                
-              </span>
-            </a>
-          </li>
           
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/cn/[基础知识]优化算法/" style="color: #0085a1">
-              <span>
-                深度学习中的优化器
-                
-                -- cn
-                
-              </span>
-            </a>
+          <li class="next">
+            <a href="/cn/[基础知识]各类损失函数/" data-toggle="tooltip" data-placement="top" title="深度学习中各类损失函数">Next Post &rarr;</a>
           </li>
           
         </ul>
-      </div>
-      
-    </div>
-  </div>
-</div>
 
+        
 
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/">来访者</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
+        
         <hr>
-    
-        <!-- Featured Tags -->
 
-<section>
-  <h5><a href="/tags/">特色标签</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#深度学习" title="深度学习" rel="3">深度学习</a>
-    
-    
-    
-    <a href="/tags/#基础知识" title="基础知识" rel="3">基础知识</a>
-    
-    
-    
-    <a href="/tags/#多任务学习" title="多任务学习" rel="1">多任务学习</a>
-    
-    
-  </div>
-</section>
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
 
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
 
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">关于自己</a></h5>
-  <div class="short-about">
+  <div id="gitalk-container"></div>
 
-    
-    <img id="avatar_pic" src="/img/avatar/h-personal.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>I&#39;ll be your nightmare</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">最近博文</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../cn/%5B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5D%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/">
-      <li>多任务学习的Loss设计和梯度推导</li>
-    </a>
-    
-    <a href="../cn/%5B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5D%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/">
-      <li>深度学习中的优化器</li>
-    </a>
-    
-    <a href="../cn/%5B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5D%E5%90%84%E7%B1%BB%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">
-      <li>深度学习中各类损失函数</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Friends Blog -->
-
-<h5><a href="/">链友</a></h5>
-<ul class="list-inline">
   
-</ul>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '1234',
+      clientSecret: '4321',
+      repo: 'dkdk-ddk',
+      owner: 'dkdk-ddk',
+      admin: 'https://github.com/dkdk-ddk/dkdk-ddk.github.io',
+      id: 'Sun Apr 17 2022 00:00:00 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
 
 
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
         <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
     
-        <!-- Archives -->
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Overview"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Overview</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SGD"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">SGD</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SGD-Momentum"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">SGD + Momentum</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SGD-Nestrov"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">SGD + Nestrov</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Adagrad"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Adagrad</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#AdaDelta-RMSProp"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">AdaDelta &#x2F; RMSProp</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Adam"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">Adam</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Nadam"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">Nadam</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#AdamW"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">AdamW</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
 
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="2022/09/">September 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="2022/04/">April 2022</a><span class="archive-list-count">2</span></li></ul>
-</div>
 
 
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#深度学习" title="深度学习">深度学习</a>
+            
+            <a class="tag" href="/tags/#基础知识" title="基础知识">基础知识</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
         <hr>
-    
-        <!-- Categories -->
+        <h5>链友</h5>
+        <ul class="list-inline">
 
-<h5><a href="/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#基础知识">
-      <li>基础知识</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+          
+        </ul>
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->

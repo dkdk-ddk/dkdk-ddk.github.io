@@ -23,16 +23,23 @@
   </url>
   
   <url>
-    <loc>http://dkdk-ddk.github.io/cn/Hexo-Theme-LiveMyLife/</loc>
+    <loc>http://dkdk-ddk.github.io/cn/[%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86]%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/</loc>
     
-    <lastmod>2020-04-16</lastmod>
+    <lastmod>2022-09-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dkdk-ddk.github.io/en/Hexo-Theme-LiveMyLife/</loc>
+    <loc>http://dkdk-ddk.github.io/cn/[%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86]%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</loc>
     
-    <lastmod>2020-04-16</lastmod>
+    <lastmod>2022-04-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dkdk-ddk.github.io/cn/[%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86]%E5%90%84%E7%B1%BB%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2022-04-16</lastmod>
     
   </url>
   
@@ -60,7 +67,21 @@
 
   
   <url>
-    <loc>http://dkdk-ddk.github.io/tags/Hexo-Theme-LiveMyLife/</loc>
+    <loc>http://dkdk-ddk.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dkdk-ddk.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    <lastmod>2022-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dkdk-ddk.github.io/tags/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-09-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -69,7 +90,7 @@
 
   
   <url>
-    <loc>http://dkdk-ddk.github.io/categories/Hexo-Theme-LiveMyLife/</loc>
+    <loc>http://dkdk-ddk.github.io/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
     <lastmod>2022-09-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

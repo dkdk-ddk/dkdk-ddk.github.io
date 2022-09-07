@@ -59,7 +59,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="description" content="Let&#39;s rock baby"/>
   <meta name="keyword" content="DKDKDDK"/>
-  <link rel="shortcut icon" href="/img/avatar/roguerabbit.jpg"/>
+  <link rel="shortcut icon" href="/"/>
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
@@ -150,7 +150,7 @@
 
 <!-- hack iOS CSS :active style -->
 
-	<body ontouchstart="" class="body--light body--dark">
+	<body ontouchstart="" class="body--light body--light">
 
 
 		<!-- ThemeColor -->
@@ -184,7 +184,7 @@
       ? b.pop()
       : '';
   }
-  let themeMode = 'dark';
+  let themeMode = 'light';
   if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
     let dbody = document.body.classList;
     themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
@@ -244,6 +244,19 @@
 
           
           
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
           <li>
             <a href="/archive/">
               
@@ -255,23 +268,10 @@
           
           
           
-          
-          
           <li>
             <a href="/about/">
               
               关于
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/categories/">
-              
-              分类
               
               
             </a>
@@ -373,12 +373,12 @@
   <style type="text/css">
     .body--light {
       /* intro-header */
-      --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-home: url('/img/header_img/sunset-bg.jpg');
       --intro-header-background-image-url-post: url('img/header_img/archive_bg.jpg');
       --intro-header-background-image-url-page: url('/img/header_img/archive_bg.jpg');
     }
     .body--dark {
-      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/sunset-bg.jpg');
       --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('img/header_img/archive_bg.jpg');
       --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg.jpg');
     }
@@ -390,10 +390,6 @@
       
     }
 
-    
-      #signature {/*signature*/
-        background-image: url('/img/signature/vincent-white.png');
-      }
     
   </style>
 
@@ -478,17 +474,19 @@
       <!-- 归档列表 -->
       
       <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2020">
-          <span class="tag-text">2020</span>
+        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
+          <span class="tag-text">2022</span>
         </span>
         <ul>
           
           <li>
-            04-17
+            09-06
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/en/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
+            <a href="/cn/[基础知识]多任务学习/" style="color: #0085a1">
               <span>
-                Hexo-Theme-LiveMyLife
+                多任务学习的Loss设计和梯度推导
+                
+                -- cn
                 
               </span>
             </a>
@@ -497,9 +495,22 @@
           <li>
             04-17
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/cn/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
+            <a href="/cn/[基础知识]各类损失函数/" style="color: #0085a1">
               <span>
-                Hexo-Theme-LiveMyLife
+                深度学习中各类损失函数
+                
+                -- cn
+                
+              </span>
+            </a>
+          </li>
+          
+          <li>
+            04-17
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            <a href="/cn/[基础知识]优化算法/" style="color: #0085a1">
+              <span>
+                深度学习中的优化器
                 
                 -- cn
                 
@@ -557,7 +568,15 @@
   <div class="tags">
     
     
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="2">Hexo-Theme-LiveMyLife</a>
+    <a href="/tags/#深度学习" title="深度学习" rel="3">深度学习</a>
+    
+    
+    
+    <a href="/tags/#基础知识" title="基础知识" rel="3">基础知识</a>
+    
+    
+    
+    <a href="/tags/#多任务学习" title="多任务学习" rel="1">多任务学习</a>
     
     
   </div>
@@ -572,13 +591,13 @@
   <div class="short-about">
 
     
-    <img id="avatar_pic" src="/img/avatar/fatpeople.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    <img id="avatar_pic" src="/img/avatar/h-personal.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
     -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
     -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
     
 
     
-    <p>Fat people have no future, either thin or die...</p>
+    <p>I&#39;ll be your nightmare</p>
     
 
     <!-- SNS Link -->
@@ -611,12 +630,16 @@
 <div class="widget">
   <ul>
     
-    <a href="../cn/Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
+    <a href="../cn/%5B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5D%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/">
+      <li>多任务学习的Loss设计和梯度推导</li>
     </a>
     
-    <a href="../en/Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
+    <a href="../cn/%5B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5D%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/">
+      <li>深度学习中的优化器</li>
+    </a>
+    
+    <a href="../cn/%5B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5D%E5%90%84%E7%B1%BB%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">
+      <li>深度学习中各类损失函数</li>
     </a>
     
   </ul>
@@ -639,7 +662,7 @@
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/09/">September 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/04/">April 2022</a><span class="archive-list-count">2</span></li></ul>
 </div>
 
 
@@ -651,8 +674,8 @@
 <div class="widget">
   <ul>
     
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
+    <a href="/categories/#基础知识">
+      <li>基础知识</li>
     </a>
     
   </ul>

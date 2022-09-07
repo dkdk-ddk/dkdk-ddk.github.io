@@ -59,7 +59,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="description" content="Let&#39;s rock baby"/>
   <meta name="keyword" content="DKDKDDK"/>
-  <link rel="shortcut icon" href="/img/avatar/roguerabbit.jpg"/>
+  <link rel="shortcut icon" href="/"/>
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://dkdk-ddk.github.io/tags/Hexo-Theme-LiveMyLife/">
+  <link rel="canonical" href="http://dkdk-ddk.github.io/cn/[基础知识]各类损失函数/">
   <title>
     
-      DKDKDDK&#39;s Blog
+      深度学习中各类损失函数 - DKDKDDK&#39;s Blog
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -150,7 +150,7 @@
 
 <!-- hack iOS CSS :active style -->
 
-	<body ontouchstart="" class="body--light body--dark">
+	<body ontouchstart="" class="body--light body--light">
 
 
 		<!-- ThemeColor -->
@@ -184,7 +184,7 @@
       ? b.pop()
       : '';
   }
-  let themeMode = 'dark';
+  let themeMode = 'light';
   if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
     let dbody = document.body.classList;
     themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
@@ -244,6 +244,19 @@
 
           
           
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
           <li>
             <a href="/archive/">
               
@@ -255,23 +268,10 @@
           
           
           
-          
-          
           <li>
             <a href="/about/">
               
               关于
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/categories/">
-              
-              分类
               
               
             </a>
@@ -300,29 +300,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      简体中文
-    </span>
-    <select id="lang-select" data-canonical="tags/Hexo-Theme-LiveMyLife/index.html">
-      
-      
-      <option value="en" >
-        English
-      </option>
-      
-      <option value="cn"  selected >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -373,27 +351,23 @@
   <style type="text/css">
     .body--light {
       /* intro-header */
-      --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('');
-      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-home: url('/img/header_img/sunset-bg.jpg');
+      --intro-header-background-image-url-post: url('/img/header_img/lml_bg.jpg');
+      --intro-header-background-image-url-page: url('//img/header_img/lml_bg.jpg');
     }
     .body--dark {
-      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/sunset-bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/lml_bg.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/header_img/lml_bg.jpg');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/img/header_img/archive_bg2.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/header_img/lml_bg.jpg'); */
       
     }
 
-    
-      #signature {/*signature*/
-        background-image: url('/img/signature/vincent-white.png');
-      }
     
   </style>
 
@@ -408,10 +382,32 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>DKDKDDK&#39;s Cookbook</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">Come and taste it!</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#深度学习" title="深度学习">深度学习</a>
+              
+              <a class="tag" href="/tags/#基础知识" title="基础知识">基础知识</a>
+              
+            </div>
+            <h1>深度学习中各类损失函数</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by DK on
+              2022-04-17
+            </span>
+
+
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -452,215 +448,324 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <h2 id="交叉熵CrossEntropy">交叉熵CrossEntropy</h2>
+<p>参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011852872/article/details/120465489">https://blog.csdn.net/u011852872/article/details/120465489</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/319869388">https://zhuanlan.zhihu.com/p/319869388</a></li>
+</ul>
+<h3 id="Loss性质">Loss性质</h3>
+<p>单个概率事件的自信息，用于衡量其不确定性$I(x)=-logp(x)$</p>
+<p>自信息的期望就是信息熵，用来描述事件整体的不确定性，对于离散事件$H§=-\sum_i^NP(x_i)logP(x_i)$，当然也可以是连续的积分形式</p>
+<p>相对熵（交叉熵）定义为$H(P, Q)=D_{KL}(P, Q) - H§$</p>
+<p>其中$D_{KL}(P,Q)$为P、Q的KL散度，定义为：</p>
+<p>$$D_{KL}(P,Q)=\sum_i^np(x_i)\log(\frac{p(x_i)}{q(x_i)})$$</p>
+<p>可以分解为：</p>
+<p>$$D_{KL}(P,Q)=\sum_i^np(x_i)\log(p(x_i))-\sum_i^np(x_i)\log(q(x_i))$$</p>
+<p>前一项就是$-H§$，后一项就是交叉熵$H(P,Q)$</p>
+<p>二分类下交叉熵Loss定义为<br>
+$$L=\frac{1}{N}\sum_{1}^{N }y_i\log(p_i)+(1-y_i)\log(1-p_i)$$</p>
+<p>多分类可类推，可知CrossEntropy有一个重要性质就是<strong>单个sample的loss只和正例类概率有关</strong>，且CrossEntropy衡量了模型输出分布和真实标签分布的KL散度。</p>
+<h3 id="和NLL的区别">和NLL的区别</h3>
+<p>在概念上这俩其实是一个东西，都可以表达为$L=-\log p$</p>
+<p>但最大恶极的torch把他们实现成了两个东西：CE = softmax(或者sigmoid) + log + NLL</p>
+<p>理论上CE不管前面是softmax或者sigmoid，它只管拿到p取个负，NLL同</p>
+<p>但是实现上CE包含了激活、log、取负，而NLL只有个取负，就很迷惑</p>
+<h3 id="激活函数的选择">激活函数的选择</h3>
+<p>CrossEntropy通常和Sigmoid（二分类，torch里对应的nn.BCELoss）或者Softmax（多分类，torch里对应的nn.CrossEntropy）一起出现。由于CrossEntropy的loss只和正例类的概率有关，所以正例类的概率计算里需要包含负例类的输出，否则网络所有输出无脑正无穷就好了。所以就需要归一化。</p>
+<p>Sigmoid拆开来看就是一个二分类的Softmax。</p>
+<h3 id="为什么不用Sigmoid-MSE？">为什么不用Sigmoid +MSE？</h3>
+<p>由于MSE的性质，其Loss的偏导正比于$(y-y_i)$乘以$\frac{\partial{y}}{\partial{x}}$，而Sigmoid的性质导致$\frac{\partial{y}}{\partial{x}}$在$y$趋近于0或者1时导数接近于0，所以难以学习。而CrossEntropy在求导时，对数的导数可以把Sigmoid里导致梯度消失的一次项给抵消掉，所以没这个问题。</p>
+<h2 id="NCE-Loss">NCE Loss</h2>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/50043438">https://www.zhihu.com/question/50043438</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_31866177/article/details/115527760">https://blog.csdn.net/weixin_31866177/article/details/115527760</a></p>
+<h3 id="Loss性质-2">Loss性质</h3>
+<p>在极多类别分类时，比如：</p>
+<ul>
+<li>
+<p>Word2vec、语言模型这样涉及Vocab大小类别的分类</p>
+</li>
+<li>
+<p>对比学习+Listwise Loss时，比如MoCo，负样本很多</p>
+</li>
+</ul>
+<p>可能会遇到一个问题：Softmax的归一化项计算量太大。NCE提供的解决方案就是对【负例类别】进行采样，把一个极多类别的多分类问题转化为若干个二分类问题，具体过程如下：</p>
+<ul>
+<li>
+<p>对于输入$x_i$或者语言模型里会标记为$c_i$，意为context</p>
+</li>
+<li>
+<p>设有正样本集合$T_i$和按照采样函数$Q(y|x)$采样来的负样本集合$S_i$</p>
+</li>
+</ul>
+<p>定义$G(x, y)=F(x, y)-logQ(y|x)$，其中$F(x, y)$为模型输出的$x$和$y$的相似度logits，$\log Q(y|x)$用于进行修正，以消除偶尔的【采样不小心得到了正样本】的bias，这个修正项也是这个loss名字的来源NCE=Noise Contrastive Estimation，对噪声分布的对比估计，那么NCE Loss的定义就是：</p>
+<p>$$ L_{NCE}=-(\sum_{y_i\in T_i}\log(\sigma(G(x_i, y_i)))+\sum_{y_i\in S_i}\log(1-\sigma(G(x_i, y_i))))$$</p>
+<p>更详细来说，NCE loss的推导过程大概是这样：</p>
+<ul>
+<li>
+<p>设我们采样p个正例和n个负例，则有：</p>
+<ul>
+<li>$P(y=1)=\frac{p}{p + n}$</li>
+<li>$P(y=0)=\frac{n}{p+n}$</li>
+<li>$P(x|y=1,c)=f(c, x)=\frac{u(c,x)}{\sum_iu(c, x_i)}=\frac{u(c,x)}{Z©}$，其中$u(c,x)=exp(c^Tx)$</li>
+<li>$P(x|y=0,c)=q(x)$</li>
+</ul>
+</li>
+<li>
+<p>可以计算后验概率（根据贝叶斯）：</p>
+<ul>
+<li>$P(y=0|x,c)=\frac{nq(x)}{nq(x)+pf(c, x)}$</li>
+<li>$P(y=1|x,c)=\frac{pf(c, x)}{nq(x)+pf(c, x)}$</li>
+</ul>
+</li>
+<li>
+<p>但是$f(c,x)$的计算还是无法摆脱那个归一化项$Z©$，在这里我们令$Z©=1$，统计证明不影响效果，所以有：</p>
+<ul>
+<li>$P(y=0|x,c)=\frac{nq(x)}{nq(x)+pu(c, x)}$</li>
+<li>$P(y=1|x,c)=\frac{pu(c, x)}{nq(x)+pu(c, x)}$</li>
+</ul>
+</li>
+<li>
+<p>可以计算NLL Loss如下：<br>
+$$<br>
+L=-(\sum_{i=1}^{p}\log(\frac{pu(c_i, x_i)}{nq(x_i)+pu(c_i,x_i)}-\sum_{i=1}^{n}\log(\frac{nq(x_i)}{nq(x_i)+pu(c_i,x_i)})<br>
+$$<br>
+对于其中第一部分有：<br>
+$$<br>
+\log(\frac{pu(c_i,x_i)}{nq(x_i)+pu(c_i,x_i)})=\log(\frac{1}{1+kq(x_i)/u(c_i,x_i)})<br>
+$$<br>
+其中：<br>
+$$<br>
+q(x_i)/u(c_i,x_i)=exp(-\log(u(c_i,x_i))+\log(kq(x_i)))=exp(-(c_i^Tx_i-\log(kq(x_i))))<br>
+$$<br>
+所以有：<br>
+$$<br>
+\frac{pu(c_i,x_i)}{nq(x_i)+pu(c_i,x_i)}=Sigmoid(c_i^Tx_i-\log(kq(x_i)))<br>
+$$<br>
+可以看到这里多了一个修正项，且可知如果$q(x_i)$是均匀分布，当$k$趋向于无穷时后一项为$log1$即0。且整体loss就变成了一个BCE啦</p>
+</li>
+</ul>
+<p>注意<strong>这里和Softmax非常不一样</strong>，Softmax只在正类别上会产生Loss，这里相当于进行了$|S_i|+|T_i|$次Softmax+CE（或者BCE）的二分类。</p>
+<p><strong>相当于把一次List-wise（多类别分类）的Loss计算扩展为$|S_i|+|T_i|$次pointwise（二分类）的Loss计算</strong>，<strong>但是是在一次前向计算完成的</strong>，注意输入都是$x_i$，所以有变化的只是最后一层：</p>
+<ul>
+<li>对于Word2vec这样，相当于对最后一层MLP（也可理解为word embedding table)进行一些负采样，<strong>同时对负例也算了loss</strong></li>
+<li>对于对比学习这样的，相当于对负样本进行了采样，实际没用，因为对比学习的词表没那么大</li>
+</ul>
+<p><strong>所以NCELoss的基础还是Softmax+CrossEntropy</strong></p>
+<p>NCE强大之处真的不只是能够解决巨大词表Softmax的运算量的问题，而是在于它能够解决归一化项中积分（而非求和）无法计算的问题，毕竟如果能够用采样替代计算整个积分，这玩意就能用来对生成模型进行建模了（例如GAN）</p>
+<h2 id="NEG-Loss">NEG Loss</h2>
+<p>相对于NCE Loss，去掉了$G(x, y)=F(x, y)-logQ(y|x)$这一步的修正，直接使用$F(x, y)$</p>
+<p>具体来说就是直接负采样，再在负采样样本上算各种二分类，不用做修正</p>
+<h2 id="Sampled-Softmax-Loss">Sampled Softmax Loss</h2>
+<p>和NCE的区别在于，仅是在负例类别上进行了采样，同时也做了采样概率修正，但没把负例算进loss里。</p>
+<p><strong>注意Sampled Softmax的基础还是Softmax+CrossEntropy</strong>。</p>
+<p>NCE本质上是一种估计目标分布的方法，目的通过规避softmax中分母求和的部分来减少计算量。NCE可以通过数学证明等价于(严格来说是这个estimator依概率收敛到真正的分布)极大似然估计。而negative sampling则是word2vec中提出来的对NCE的一个简化，是无法真正和softmax等价的。而为什么在后续的一系列论文中negative sampling被频繁使用，在word2vec论文中作者也做过解释：</p>
+<blockquote>
+<p>While NCE can be shown to approximately maximize the log probability of the softmax, the Skip- gram model is only concerned with learning <a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=high-quality+vector+representations&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1143245955%7D">high-quality vector representations</a>, so we are free to simplify NCE as long as the vector representations retain their quality.</p>
+</blockquote>
+<h2 id="info-NCE-Loss">info-NCE Loss</h2>
+<p>就是一个Sampled Softmax Loss 加上温度参数加上NLL</p>
+<h2 id="FocalLoss">FocalLoss</h2>
+<p>$$L_{Focal}=-(1-p_t)^\gamma log(p_t)$$</p>
+<p>相当于在CE的基础上加上一个系数$(1-p_t)^\gamma$</p>
+<p>为什么Focal有效</p>
+<blockquote>
+<p>focal loss从样本难易分类角度出发，解决样本非平衡带来的模型训练问题。</p>
+</blockquote>
+<blockquote>
+<p>相信很多人会在这里有一个疑问，样本难易分类角度怎么能够解决样本非平衡的问题，直觉上来讲样本非平衡造成的问题就是样本数少的类别分类难度较高。因此从样本难易分类角度出发，使得loss聚焦于难分样本，解决了样本少的类别分类准确率不高的问题，当然难分样本不限于样本少的类别，也就是focal loss不仅仅解决了样本非平衡的问题，同样有助于模型的整体性能提高。</p>
+</blockquote>
 
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
 
-      
-
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2020">
-          <span class="tag-text">2020</span>
-        </span>
-        <ul>
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/en/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-                
-              </span>
-            </a>
+          <li class="previous">
+            <a href="/cn/[基础知识]优化算法/" data-toggle="tooltip" data-placement="top" title="深度学习中的优化器">&larr; Previous Post</a>
           </li>
           
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/cn/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-                
-                -- cn
-                
-              </span>
-            </a>
-          </li>
           
         </ul>
-      </div>
-      
-    </div>
-  </div>
-</div>
 
+        
 
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/">来访者</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
+        
         <hr>
-    
-        <!-- Featured Tags -->
 
-<section>
-  <h5><a href="/tags/">特色标签</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="2">Hexo-Theme-LiveMyLife</a>
-    
-    
-  </div>
-</section>
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
 
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
 
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">关于自己</a></h5>
-  <div class="short-about">
+  <div id="gitalk-container"></div>
 
-    
-    <img id="avatar_pic" src="/img/avatar/fatpeople.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>Fat people have no future, either thin or die...</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">最近博文</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../cn/Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-    <a href="../../en/Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Friends Blog -->
-
-<h5><a href="/">链友</a></h5>
-<ul class="list-inline">
   
-</ul>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '1234',
+      clientSecret: '4321',
+      repo: 'dkdk-ddk',
+      owner: 'dkdk-ddk',
+      admin: 'https://github.com/dkdk-ddk/dkdk-ddk.github.io',
+      id: 'Sun Apr 17 2022 00:00:00 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
 
 
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
         <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
     
-        <!-- Archives -->
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5CrossEntropy"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">交叉熵CrossEntropy</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Loss%E6%80%A7%E8%B4%A8"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Loss性质</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%92%8CNLL%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">和NLL的区别</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">激活函数的选择</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8Sigmoid-MSE%EF%BC%9F"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">为什么不用Sigmoid +MSE？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#NCE-Loss"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">NCE Loss</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Loss%E6%80%A7%E8%B4%A8-2"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Loss性质</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#NEG-Loss"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">NEG Loss</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Sampled-Softmax-Loss"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Sampled Softmax Loss</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#info-NCE-Loss"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">info-NCE Loss</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#FocalLoss"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">FocalLoss</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
 
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li></ul>
-</div>
 
 
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#深度学习" title="深度学习">深度学习</a>
+            
+            <a class="tag" href="/tags/#基础知识" title="基础知识">基础知识</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
         <hr>
-    
-        <!-- Categories -->
+        <h5>链友</h5>
+        <ul class="list-inline">
 
-<h5><a href="/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+          
+        </ul>
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
